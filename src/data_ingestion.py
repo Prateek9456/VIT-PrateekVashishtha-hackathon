@@ -43,6 +43,34 @@ class DataIngestor:
         ]
         return mock_news
 
+    def fetch_yfinance_news(self):
+        """
+        Fetch live financial news data using yfinance.
+        """
+        logging.info("Fetching live financial news via yfinance...")
+        tickers = ["AAPL", "MSFT", "JPM", "GOOGL"]
+        live_news = []
+        try:
+            import yfinance as yf
+            import time
+            for ticker in tickers:
+                t = yf.Ticker(ticker)
+                news = t.news
+                if not news: continue
+                for item in news[:2]:
+                    title = item.get('title', '')
+                    publisher = item.get('publisher', f'Live News ({ticker})')
+                    if title:
+                        live_news.append({
+                            "id": int(time.time() * 1000) + len(live_news),
+                            "timestamp": datetime.now().isoformat(),
+                            "text": title,
+                            "source": publisher
+                        })
+        except Exception as e:
+            logging.error(f"Failed to fetch yfinance data: {e}")
+        return live_news
+
     def ingest(self):
         """
         Main ingestion method. Routes to the appropriate fetcher based on source_type.
