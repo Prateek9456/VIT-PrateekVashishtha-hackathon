@@ -3,8 +3,8 @@
 **Candidate Name:** Prateek Vashishtha<br>
 **College Email ID:** prateek.23bcg10010@vitbhopal.ac.in<br>
 **College / Campus:** Vellore Institute of Technology, Bhopal<br>
-**Demo Video Link:** [Pending - Add YouTube Unlisted Link Here]<br>
-**Slide Deck Link (if hosted externally):** [Pending]
+**Demo Video Link:** [Pending - Will be uploaded shortly]<br>
+**Slide Deck Link:** [docs/presentation.pdf](./docs/presentation.pdf)
 
 ---
 
