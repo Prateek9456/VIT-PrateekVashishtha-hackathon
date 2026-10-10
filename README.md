@@ -77,6 +77,8 @@ pip install -r requirements.txt
 
 # 4. Start the Risk Engine API (Terminal 1)
 python src/api.py
+# Note: On the very first run, this will download the FinBERT and BART models from HuggingFace (~2GB). 
+# This is a one-time process; subsequent runs will boot instantly from the local cache.
 
 # 5. Launch the Tactical Rebalancing Dashboard (Terminal 2)
 streamlit run src/dashboard.py
