@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 app = FastAPI(
     title="AI/NLP Risk Engine API",
     description="API for distributing real-time financial risk signals (hybrid mock/live).",
-    version="1.0.0"
+    version="1.0.0-final"
 )
 
 # Add CORS middleware to allow the Streamlit dashboard or other modules to access the API
