@@ -61,7 +61,7 @@ class RebalanceEngine:
             adjustment = 0
             
             # Simple heuristic algorithm
-            if aggregate_sentiment > 0.2:
+            if aggregate_sentiment > 0.05:
                 # Bullish: Boost Growth/Cyclical
                 if sector in ["Technology", "Consumer Discretionary", "Financials"]:
                     adjustment = self.config.SENTIMENT_ADJUSTMENT_FACTOR
@@ -69,7 +69,7 @@ class RebalanceEngine:
                 elif sector in ["Consumer Staples", "Healthcare"]:
                     adjustment = -self.config.SENTIMENT_ADJUSTMENT_FACTOR
                     
-            elif aggregate_sentiment < -0.2:
+            elif aggregate_sentiment < -0.05:
                 # Bearish: Boost Defensive
                 if sector in ["Consumer Staples", "Healthcare"]:
                     adjustment = self.config.SENTIMENT_ADJUSTMENT_FACTOR * event_multiplier
