@@ -130,7 +130,7 @@ else:
         display_df.style.applymap(color_sentiment, subset=['sentiment_label']),
         use_container_width=True,
         hide_index=True
-
+    )
     
     st.markdown("---")
     st.markdown("### ⚖️ Tactical Portfolio Rebalancing")
