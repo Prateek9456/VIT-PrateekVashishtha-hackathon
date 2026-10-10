@@ -10,13 +10,13 @@ class RebalanceEngine:
     """
     Core engine for the Tactical Index Rebalancing Module.
     """
-    def __init__(self):
+    def __init__(self) -> None:
         self.portfolio = MockPortfolio()
         self.client = RiskEngineClient()
         self.config = RebalancerConfig()
         self.transaction_log = []
         
-    def execute_rebalance(self):
+    def execute_rebalance(self) -> pd.DataFrame:
         """
         Fetches signals and executes the rebalancing algorithm.
         """
