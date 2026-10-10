@@ -79,7 +79,16 @@ def fetch_signals():
         try:
             return pd.read_csv("../data/news_with_sentiment_and_impact.csv")
         except Exception:
-            return pd.DataFrame()
+            try:
+                # Absolute last resort fallback to raw sample data so UI renders something
+                df = pd.read_csv("data/sample_news.csv")
+                df['sentiment_label'] = 'neutral'
+                df['sentiment_score'] = 0.0
+                df['event_class'] = 'Unknown'
+                df['impact_score'] = 1
+                return df
+            except Exception:
+                return pd.DataFrame()
 
 # -------------------------------------------------------------------
 # Dashboard Sections
