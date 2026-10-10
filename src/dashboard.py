@@ -47,6 +47,9 @@ with st.sidebar:
     st.markdown("**API Status:**")
     st.success("🟢 Online")
     
+    st.markdown("**Market Data Source:**")
+    st.info("📡 Hybrid (yfinance + Mock Fail-safe)")
+    
     st.markdown("---")
     st.markdown("### Hackathon 2026")
     st.caption("Module A: Tactical Index Rebalancing")
@@ -158,6 +161,15 @@ else:
     # Display Transaction Log
     if rebalancer.transaction_log:
         st.markdown("#### 📜 Transaction History")
-        st.dataframe(pd.DataFrame(rebalancer.transaction_log), use_container_width=True)
+        tx_df = pd.DataFrame(rebalancer.transaction_log)
+        
+        def color_action(val):
+            if val == 'BUY':
+                return 'color: #EF4444; font-weight: bold;'
+            elif val == 'SELL':
+                return 'color: #10B981; font-weight: bold;'
+            return ''
+            
+        st.dataframe(tx_df.style.applymap(color_action, subset=['action']), use_container_width=True)
     else:
         st.info("No rebalancing transactions required at this time.")
