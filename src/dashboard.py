@@ -51,8 +51,8 @@ with st.sidebar:
     st.info("📡 Hybrid (yfinance + Mock Fail-safe)")
     
     st.markdown("---")
-    st.markdown("### Hackathon 2026")
-    st.caption("Module A: Tactical Index Rebalancing")
+    st.markdown("### S&P Global & Crisil Campus Hackathon 2026")
+    st.caption("Module A : A tactical, high-frequency stock index rebalancer")
 
 # -------------------------------------------------------------------
 # Main Dashboard Layout
