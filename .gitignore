@@ -44,4 +44,5 @@ venv.bak/
 # Data files
 *.csv
 *.json
-!data/sample_data.csv
+!data/*.csv
+!data/*.json
