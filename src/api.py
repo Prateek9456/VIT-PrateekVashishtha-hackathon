@@ -1,3 +1,7 @@
+"""
+API module for the AI/NLP Risk Engine.
+Provides REST endpoints for fetching and analyzing real-time financial risk signals.
+"""
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -38,6 +42,9 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 def read_root():
     """
     Health check endpoint.
+    
+    Returns:
+        dict: A dictionary containing the status of the API.
     """
     return {"status": "online", "message": "Welcome to the AI/NLP Risk Engine API"}
 
@@ -56,6 +63,9 @@ def api_status():
 def get_latest_signals():
     """
     Fetches the latest pre-processed risk signals from the data pipeline output.
+    
+    Returns:
+        dict: A dictionary containing the list of recent risk signals.
     """
     try:
         df = pd.read_csv("../data/news_with_sentiment_and_impact.csv")
