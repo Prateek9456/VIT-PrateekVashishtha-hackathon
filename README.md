@@ -1,10 +1,10 @@
 # Sentima Risk Engine - S&P Global & Crisil Campus Hackathon 2026
 
-**Candidate Name:** Prateek Vashishtha
-**College Email ID:** prateek.23bcg10010@vitbhopal.ac.in
-**College / Campus:** Vellore Institute of Technology, Bhopal
-**Demo Video Link:** [Pending - Will be uploaded shortly]
-**Slide Deck Link (if hosted externally):** [docs/presentation.pdf](./docs/presentation.pdf)
+**Candidate Name:** Prateek Vashishtha<br>
+**College Email ID:** prateek.23bcg10010@vitbhopal.ac.in<br>
+**College / Campus:** Vellore Institute of Technology, Bhopal<br>
+**Demo Video Link:** [Pending - Will be uploaded shortly]<br>
+**Slide Deck Link:** [docs/presentation.pdf](./docs/presentation.pdf)
 
 ## 1. Project Overview / Problem Statement & Approach
 The objective of this case study is to design and implement a platform capable of ingesting and analyzing real-time, unstructured data to generate actionable financial risk signals. 
@@ -13,29 +13,7 @@ Our approach involves building a **Unified AI/NLP Risk Engine**. This engine ing
 
 ## 2. Architecture & Tech Stack
 - **Overview of system design and data flow:**
-```mermaid
-graph TD
-    subgraph Data Ingestion
-        A[Mock Historical Data Kaggle Format] --> C(Hybrid Data Ingestor)
-        B[Live Yahoo Finance API yfinance] --> C
-    end
-    
-    C -->|Unified Stream| D{NLP Engine HuggingFace}
-    D -->|FinBERT| E[Sentiment Score]
-    D -->|BART Zero-Shot| F[Event Classification]
-    E --> G[Impact Scoring Algorithm]
-    F --> G
-    
-    E --> H[(API Distribution Layer FastAPI)]
-    F --> H
-    G --> H
-    
-    H -->|JSON| I[Module A: Tactical Rebalancer]
-    I -->|Weight Logic| J[Adjusted Portfolio Weights]
-    
-    H --> K[Streamlit Dashboard]
-    J --> K
-```
+![Architecture Diagram](docs/architecture.png)
 
 - **Key frameworks, databases, and AI/ML libraries used:**
   - Core AI Models: HuggingFace `transformers`, `torch`
@@ -44,8 +22,8 @@ graph TD
   - Frontend / Visualization: `streamlit`
 
 ## 3. Dataset Used
-- **Source/nature of sample data:** We utilize a dual-source hybrid ingestion system. Our primary source is live, real-time news headlines scraped dynamically via the `yfinance` Python library. Our secondary fallback source is simulated financial news modeled heavily after the public Kaggle Financial News Sentiment Dataset.
-- **Any assumptions made about the data:** We assume that headline text provides enough context for accurate sentiment analysis without the full article body. We also assume that our mock S&P 100 stock portfolio perfectly correlates with the broader macroeconomic trends identified in the unstructured text.
+- **Unstructured Data for NLP:** Simulated financial news headlines strictly modeled after the **Financial News Sentiment Datasets (Kaggle)** to ensure realistic sentiment classification.
+- **Financial Data:** We integrated the **yfinance** Python library to handle historical and real-time market data structures for Module A (Tactical Index Rebalancing).
 
 ## 4. Quickstart & Installation
 Runtime: Python 3.11+ on Windows/Linux
@@ -59,10 +37,13 @@ python -m venv venv
 # Linux/Mac: source venv/bin/activate
 pip install -r requirements.txt
 
-# Start the Risk Engine API (Terminal 1)
+# 1. Run Data Ingestion & NLP Processing
+python src/data_ingestion.py
+
+# 2. Start the Risk Engine API (Terminal 1)
 python src/api.py
 
-# Launch the Tactical Rebalancing Dashboard (Terminal 2)
+# 3. Launch the Tactical Rebalancing Dashboard (Terminal 2)
 streamlit run src/dashboard.py
 ```
 
