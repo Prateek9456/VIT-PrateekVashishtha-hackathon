@@ -77,6 +77,9 @@ class DataIngestor:
         """
         if self.source_type == "mock":
             data = self.fetch_mock_data()
+        elif self.source_type == "hybrid":
+            data = self.fetch_mock_data()
+            data.extend(self.fetch_yfinance_news())
         else:
             raise NotImplementedError(f"Data source {self.source_type} not implemented yet.")
         
@@ -94,7 +97,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from nlp_engine import NLPEngine
 
 if __name__ == "__main__":
-    ingestor = DataIngestor(source_type="mock")
+    ingestor = DataIngestor(source_type="hybrid")
     data_df = ingestor.ingest()
     print("\nIngested Data Sample:")
     print(data_df.head())
