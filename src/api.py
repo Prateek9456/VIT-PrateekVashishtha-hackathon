@@ -12,7 +12,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 app = FastAPI(
     title="AI/NLP Risk Engine API",
-    description="API for distributing real-time financial risk signals to downstream modules.",
+    description="API for distributing real-time financial risk signals (hybrid mock/live).",
     version="1.0.0"
 )
 
