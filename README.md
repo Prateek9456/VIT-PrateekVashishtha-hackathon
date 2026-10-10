@@ -11,11 +11,12 @@ The objective of this case study is to design and implement a platform capable o
 
 Our approach involves building a **Unified AI/NLP Risk Engine**. This engine ingests financial news headlines, uses state-of-the-art HuggingFace AI models (FinBERT and BART zero-shot) to parse the text, and outputs structured, machine-readable signals (Sentiment Score, Event Classification, and Impact Score).
 
-### Building Upon Module A: Tactical Index Rebalancing
-To demonstrate the real-world utility of these signals, we extended our architecture by integrating and building upon **Module A**. Our downstream application consumes the AI risk signals via a REST API to dynamically rebalance a mock stock index, maximizing returns in bullish scenarios and protecting capital during high-impact risk events.
+### Module A: Tactical Index Rebalancing
+To demonstrate the real-world utility of these signals, we extended our architecture by integrating **Module A**. Our downstream application consumes the AI risk signals via a REST API to dynamically rebalance a mock stock index, maximizing returns in bullish scenarios and protecting capital during high-impact risk events.
 
 ## 2. Architecture & Tech Stack
 - **Overview of system design and data flow:**
+
 ![Architecture Diagram](docs/architecture.png)
 
 - **Key frameworks, databases, and AI/ML libraries used:**
