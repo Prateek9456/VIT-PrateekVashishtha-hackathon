@@ -27,6 +27,12 @@ class NLPEngine:
         self.classifier = pipeline("zero-shot-classification", model=zero_shot_model, device=pipeline_device)
         logging.info("Zero-Shot Classification model loaded successfully.")
 
+    def clean_text(self, text: str) -> str:
+        import re
+        text = re.sub(r'http\S+', '', text)
+        text = text.replace('\n', ' ').strip()
+        return text
+
     def analyze_sentiment(self, text: str):
         """
         Analyze the sentiment of a given financial text.
@@ -35,6 +41,7 @@ class NLPEngine:
         # FinBERT labels: 0 -> positive, 1 -> negative, 2 -> neutral
         # We will map these to a continuous score
         
+        text = self.clean_text(text)
         inputs = self.tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=512)
         inputs = {k: v.to(self.device) for k, v in inputs.items()}
 
@@ -78,6 +85,7 @@ class NLPEngine:
             "Earnings Report"
         ]
         
+        text = self.clean_text(text)
         # Perform classification
         result = self.classifier(text, candidate_labels)
         
@@ -114,7 +122,7 @@ class NLPEngine:
         multiplier = event_multipliers.get(event_class, 1.0)
         
         # Keyword heuristic boosters
-        text_lower = text.lower()
+        text_lower = self.clean_text(text).lower()
         boost = 0
         high_impact_words = ["surprise", "massive", "crisis", "plunge", "spike", "record", "unexpected"]
         for word in high_impact_words:
