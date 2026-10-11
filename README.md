@@ -1,4 +1,4 @@
-# Sentima Risk Engine - S&P Global & Crisil Campus Hackathon 2026
+# Sentima Risk Engine - S&P Global & Crisil Campus Hackathon
 
 **Candidate Name:** Prateek Vashishtha<br>
 **College Email ID:** prateek.23bcg10010@vitbhopal.ac.in<br>
