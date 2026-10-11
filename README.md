@@ -3,8 +3,10 @@
 **Candidate Name:** Prateek Vashishtha<br>
 **College Email ID:** prateek.23bcg10010@vitbhopal.ac.in<br>
 **College / Campus:** Vellore Institute of Technology, Bhopal<br>
-**Demo Video Link:** [Pending - Will be uploaded shortly]<br>
+**Demo Video Link:** [YouTube - Watch Demo](https://www.youtube.com/watch?v=k5af1aG2bUM)<br>
 **Slide Deck Link:** [docs/presentation.pdf](./docs/presentation.pdf)
+
+[![Watch the Demo Video](https://img.youtube.com/vi/k5af1aG2bUM/maxresdefault.jpg)](https://www.youtube.com/watch?v=k5af1aG2bUM)
 
 ## 1. Project Overview / Problem Statement & Approach
 The objective of this case study is to design and implement a platform capable of ingesting and analyzing real-time, unstructured data to generate actionable financial risk signals. 
